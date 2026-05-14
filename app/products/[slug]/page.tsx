@@ -6,6 +6,7 @@ import ProductGallery from '@/components/ProductGallery'
 import VariantList from '@/components/VariantList'
 import ReviewCard from '@/components/ReviewCard'
 import StarRating from '@/components/StarRating'
+import AddToCartButton from '@/components/AddToCartButton'
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -100,9 +101,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </div>
           )}
 
-          <button className="w-full py-4 bg-brand-700 text-white rounded-full hover:bg-brand-800 transition-colors font-semibold text-lg shadow-lg">
-            Add to Cart
-          </button>
+          <AddToCartButton
+            productId={product.id}
+            productName={productName}
+            price={Number(price)}
+          />
         </div>
       </div>
 
